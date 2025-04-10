@@ -22,7 +22,7 @@ def encryptage(valeur):
 @app.route("/decrypt/<texte_chiffre>")
 def decrypt(texte_chiffre):
     try:
-        result = cipher.decrypt(texte_chiffre.encode())
+        result = f.decrypt(texte_chiffre.encode())
         return result.decode()
     except:
         return "Erreur : Impossible de déchiffrer."
