@@ -19,6 +19,12 @@ def encryptage(valeur):
     valeur_bytes = valeur.encode()  # Conversion str -> bytes
     token = f.encrypt(valeur_bytes)  # Encrypt la valeur
     return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
-                                                                                                                                                     
+@app.route("/decrypt/<texte_chiffre>")
+def decrypt(texte_chiffre):
+    try:
+        result = cipher.decrypt(texte_chiffre.encode())
+        return result.decode()
+    except:
+        return "Erreur : Impossible de déchiffrer."
 if __name__ == "__main__":
   app.run(debug=True)
