@@ -15,19 +15,19 @@ def hello_world():
 key = Fernet.generate_key()
 f = Fernet(key)
 
-@app.route('/encrypt/<string:valeur>')
-def encryptage(valeur):
-    valeur_bytes = valeur.encode()  # Conversion str -> bytes
-    token = f.encrypt(valeur_bytes)  # Encrypt la valeur
-    return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
-@app.route("/decrypt/<texte_chiffre>")
-def decrypt(texte_chiffre):
-    try:
-        result = f.decrypt(texte_chiffre.encode())
-        return result.decode()
-    except:
-        return "Erreur : Impossible de déchiffrer."
-      @app.route("/encrypt_custom/<user_key>/<valeur>")
+#@app.route('/encrypt/<string:valeur>')
+#def encryptage(valeur):
+    #valeur_bytes = valeur.encode()  # Conversion str -> bytes
+    #token = f.encrypt(valeur_bytes)  # Encrypt la valeur
+    #return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
+#@app.route("/decrypt/<texte_chiffre>")
+#def decrypt(texte_chiffre):
+   # try:
+    #    result = f.decrypt(texte_chiffre.encode())
+     #   return result.decode()
+    #except:
+     #   return "Erreur : Impossible de déchiffrer."
+      #@app.route("/encrypt_custom/<user_key>/<valeur>")
 def encrypt_custom(user_key, valeur):
     try:
         f_custom = Fernet(user_key.encode())
