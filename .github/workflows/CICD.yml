@@ -1,3 +1,10 @@
+name: Déploiement vers Alwaysdata
+
+on:
+  push:
+    branches:
+      - main  # Ou 'master' selon ta branche par défaut
+
 jobs:
   Connexion:
     runs-on: ubuntu-latest
